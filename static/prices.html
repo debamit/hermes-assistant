@@ -1,0 +1,58 @@
+<style>
+  #prices {
+    display: flex;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #21262d;
+    flex-shrink: 0;
+    overflow-x: auto;
+  }
+
+  .price-block {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 10px 16px;
+    min-width: 140px;
+    flex: 1;
+  }
+
+  .price-block .asset {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #7d8590;
+    margin-bottom: 4px;
+  }
+
+  .price-block .usd {
+    font-size: 15px;
+    font-weight: 600;
+    color: #e6edf3;
+    margin-bottom: 2px;
+  }
+
+  .price-block .eth {
+    font-size: 12px;
+    color: #8b949e;
+  }
+</style>
+
+<div id="prices">
+  <div class="price-block" id="price-btc">
+    <div class="asset">BTC</div>
+    <div class="usd">—</div>
+    <div class="eth">—</div>
+  </div>
+  <div class="price-block" id="price-gold">
+    <div class="asset">GOLD</div>
+    <div class="usd">—</div>
+    <div class="eth">—</div>
+  </div>
+  <div class="price-block" id="price-silver">
+    <div class="asset">SILVER</div>
+    <div class="usd">—</div>
+    <div class="eth">—</div>
+  </div>
+</div>

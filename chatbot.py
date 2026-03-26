@@ -2,16 +2,22 @@
 """Simple Hermes Agent chatbot - prints responses to console."""
 
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load local .env from project directory
+load_dotenv(Path(__file__).parent / ".env")
+
 from run_agent import AIAgent
 
 
 def main():
-    # Use local LM Studio instance (check env vars first)
     agent = AIAgent(
+        model=os.environ.get("LLM_MODEL", "qwen3.5-27b"),
+        provider="cus",  # Let's it use base_url override
+        base_url=os.environ.get("OPENAI_BASE_URL", "http://192.168.0.107:1234/v1"),
+        api_key="dummy",  # Required but not used by LM Studio
         quiet_mode=True,
-        provider="openai",  # LM Studio uses OpenAI-compatible API
-        base_url=os.getenv("OPENAI_BASE_URL", "http://192.168.0.107:1234/v1"),
-        model=os.getenv("LLM_MODEL", "qwen/qwen3.5-35b-a3b"),
     )
     
     print("Hermes Assistant (type 'quit' to exit)")
