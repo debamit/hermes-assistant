@@ -1,0 +1,11 @@
+[project]
+name = "hermes-assistant"
+version = "0.1.0"
+description = "A simple chat agent built using the Hermes Agent Python library"
+requires-python = ">=3.10"
+dependencies = [
+    "hermes-agent @ git+https://github.com/NousResearch/hermes-agent.git",
+]
+
+[project.scripts]
+assistant = "agent:main"
