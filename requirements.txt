@@ -1,0 +1,2 @@
+# Hermes Agent Python library
+hermes-agent @ git+https://github.com/NousResearch/hermes-agent.git
