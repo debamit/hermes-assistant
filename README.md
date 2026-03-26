@@ -6,7 +6,9 @@ A simple chat agent built using the Hermes Agent Python library.
 
 ```bash
 uv sync
-export OPENROUTER_API_KEY=your-key-here
+# Optional: override defaults with env vars
+export OPENAI_BASE_URL=http://192.168.0.107:1234/v1
+export LLM_MODEL=qwen/qwen3.5-35b-a3b
 ```
 
 ## Usage
@@ -17,4 +19,4 @@ uv run python agent.py
 assistant
 ```
 
-Type your message and press Enter. Type 'quit' to exit.
+Uses your local LM Studio instance by default (no API key needed).
