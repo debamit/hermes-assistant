@@ -13,7 +13,8 @@ from run_agent import AIAgent
 
 def main():
     agent = AIAgent(
-        model=os.environ.get("LLM_MODEL", "qwen3.5-27b"),
+        # model=os.environ.get("LLM_MODEL", "qwen/qwen3.5-9b"),
+        model="qwen/qwen3.5-9b",  # Use a smaller model for local testing
         provider="cus",  # Let's it use base_url override
         base_url=os.environ.get("OPENAI_BASE_URL", "http://192.168.0.107:1234/v1"),
         api_key="dummy",  # Required but not used by LM Studio

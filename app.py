@@ -17,6 +17,7 @@ from pydantic import BaseModel
 
 # Load local .env from project directory
 load_dotenv(Path(__file__).parent / ".env")
+# I think the problem is here
 
 from run_agent import AIAgent
 
@@ -29,14 +30,16 @@ app = FastAPI(
 
 class ChatRequest(BaseModel):
     message: str
-    model: str = "qwen3.5-27b"
+    model: str = "qwen/qwen3.5-9b"
 
 
 # Create agent once at startup (more efficient than creating per request)
 print("Initializing AIAgent...")
 start_time = time.time()
+print(f"Using model: {os.environ.get('LLM_MODEL', 'qwen/qwen3.5-9b')}")
 agent = AIAgent(
-    model=os.environ.get("LLM_MODEL", "qwen3.5-27b"),
+    # model=os.environ.get("LLM_MODEL", "qwen/qwen3.5-9b"),
+    model="qwen/qwen3.5-9b",  # Override to smaller model for local testing
     provider="cus",
     base_url=os.environ.get("OPENAI_BASE_URL", "http://192.168.0.107:1234/v1"),
     api_key="***",  # Required but not used by LM Studio
